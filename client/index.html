@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors Game</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#4CAF50">
@@ -69,7 +70,7 @@
                 <div class="player-section">
                     <h3>You :</h3>
                     <div id="player1Choice" class="choice-container">
-                        <button onclick="sendChoice('Rock')" class="rock">Stonek</button>
+                        <button onclick="sendChoice('Stone')" class="rock">Stone</button>
                         <button onclick="sendChoice('Paper')" class="paper">Paper</button>
                         <button onclick="sendChoice('Scissors')" class="scissor">Scissors</button>
                     </div>
@@ -78,7 +79,7 @@
                 <div class="player-section">
                     <h3>Opponent :</h3>
                     <div id="player2Choice" class="choice-container">
-                        <p id="opponentState">Waiting for opponent</p>
+                        <p id="opponentState">Waiting for opponent </p>
                     </div>
                 </div>
             </div>
@@ -103,6 +104,16 @@
 
     <script src="/socket.io/socket.io.js"></script>
     <script src="./client.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js').then(registration => {
+                console.log('Service Worker registered with scope:', registration.scope);
+            }).catch(error => {
+                console.log('Service Worker registration failed:', error);
+            });
+        }
+    </script>
+
 </body>
 
 </html>
