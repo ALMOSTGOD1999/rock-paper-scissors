@@ -11,6 +11,10 @@ const rooms = {};
 // Serve static files from the 'client' directory
 app.use(express.static(path.join(__dirname, "client")));
 
+app.get("/service-worker.js", (req, res) => {
+  res.sendFile(path.join(__dirname, "service-worker.js"));
+});
+
 // Health check endpoint
 app.get("/healthcheck", (req, res) => {
   res.send("<h1>RPS App running...</h1>");
@@ -127,7 +131,7 @@ function makeid(length) {
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
     navigator.serviceWorker
-      .register("/service-worker.js")
+      .register("./service-worker.js")
       .then((registration) => {
         console.log(
           "Service Worker registered with scope:",
