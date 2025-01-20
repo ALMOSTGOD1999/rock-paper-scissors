@@ -296,3 +296,16 @@ function updateScoreDisplay() {
 function exitGame() {
   window.location.href = "/goodbye.html"; // Redirect to the goodbye page
 }
+
+let deferredPrompt;
+
+window.addEventListener("beforeinstallprompt", (e) => {
+  // Prevent Chrome 67 and earlier from automatically showing the prompt
+  e.preventDefault();
+  // Stash the event so it can be triggered later
+  deferredPrompt = e;
+
+  // Show your own install button or UI element
+  // For testing, let's log to confirm the event fired
+  console.log("Install prompt is ready to be shown");
+});
