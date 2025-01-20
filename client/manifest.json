@@ -2,23 +2,23 @@
   "name": "Jan-ken-pon",
   "short_name": "Jan-ken-pon",
   "description": "Play Rock Paper Scissors online", 
-  "start_url": "./", 
+  "start_url": "./",  
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#4CAF50",
-  "scope": "./",
+  "scope": "./", 
   "icons": [
     {
       "src": "./assets/icons/icon.svg",
       "sizes": "192x192",
-      "type": "image/svg"
-      
+      "type": "image/svg",
+      "purpose": "any maskable" 
     },
     {
       "src": "./assets/icons/icon-512.svg",
       "sizes": "512x512",
-      "type": "image/svg"
-    
+      "type": "image/svg",
+      "purpose": "any maskable"
     }
   ]
 }
