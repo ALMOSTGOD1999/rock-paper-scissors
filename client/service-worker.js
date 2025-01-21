@@ -5,8 +5,8 @@ const urlsToCache = [
   "./style.css",
   "./client.js",
   "./assets/scissor.svg",
-  "./assets/icons/icon.svg",
-  "./assets/icons/icon-512.svg",
+  "./assets/icons/icon.png",
+  "./assets/icons/icon-512.png",
 ];
 
 // Install the service worker and cache resources
