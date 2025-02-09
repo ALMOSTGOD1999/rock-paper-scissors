@@ -14,7 +14,73 @@
         <h1>Thanks for Playing!</h1>
         <p>We hope to see you again soon.</p>
     </div>
-</body>
 
+    <!-- Semantic footer element with error-handled dynamic copyright -->
+    <footer class="footer">
+        <p id="copyright"></p>
+    </footer>
+
+    <script>
+        // IIFE for encapsulation and scope protection
+        (function () {
+            function updateCopyright() {
+                const copyrightElement = document.getElementById('copyright');
+
+                // Guard clause for DOM element
+                if (!copyrightElement) {
+                    console.error('Copyright element not found');
+                    return;
+                }
+
+                try {
+                    const year = new Date().getFullYear();
+
+                    // Type safety check for year value
+                    if (!Number.isInteger(year)) {
+                        throw new Error('Invalid year format');
+                    }
+
+                    copyrightElement.textContent = `© ${year} All rights reserved`;
+
+                } catch (error) {
+                    // Fallback to static year if date operations fail
+                    console.error('Error updating copyright year:', error);
+                    copyrightElement.textContent = '© 2025 All rights reserved';
+                }
+            }
+
+            // Initialize with proper DOM loading check
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', updateCopyright);
+            } else {
+                updateCopyright();
+            }
+        })();
+    </script>
+
+    <style>
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem;
+            text-align: center;
+            background-color: #f8f9fa;
+            border-top: 1px solid #dee2e6;
+        }
+
+        #copyright {
+            margin: 0;
+            font-size: 0.875rem;
+            color: #6c757d;
+        }
+
+        /* Adjust main container to prevent footer overlap */
+        .container {
+            padding-bottom: 4rem;
+        }
+    </style>
+</body>
 
 </html>
